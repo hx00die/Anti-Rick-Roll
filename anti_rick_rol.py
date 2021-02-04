@@ -1,17 +1,18 @@
 import urllib.request
 import json
 import urllib
-import pprint
+import requests
 
 def is_rick_rol():
    if "rick" in result or "Rick" in result or "Never" in result:
        print("Probably a rick roll")
    else:
-       print("Probably not a rick roll")
+       print("not a rick roll")
 
 input_url = input("enter sus url: ")
-split_url = input_url.split('/') 
-VideoID = split_url[2] 
+if 'youtube' not in input_url:
+    input_url = requests.head(input_url).headers['location']
+
 
 params = {"format": "json", "url": input_url}
 url = "https://www.youtube.com/oembed"
@@ -25,4 +26,5 @@ with urllib.request.urlopen(url) as response:
     is_rick_rol()
     print("Titel: ", result)
     print("Channel: ", data["author_url"])
+
 
