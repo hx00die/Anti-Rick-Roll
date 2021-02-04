@@ -7,7 +7,7 @@ def is_rick_rol():
    if "rick" in result or "Rick" in result or "Never" in result:
        print("Probably a rick roll")
    else:
-       print("not a rick roll")
+       print("Probably not a rick roll")
 
 input_url = input("enter sus url: ")
 split_url = input_url.split('/') 
